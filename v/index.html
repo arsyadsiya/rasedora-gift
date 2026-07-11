@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0B1F17">
+    <meta name="description" content="A special memory made only for you 💚">
+    <title>For You, My Love 💚</title>
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" as="image" href="assets/images/hero.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- PIN SCREEN                                   -->
+    <!-- ============================================ -->
+    <div id="pinScreen" class="pin-screen">
+        <div class="pin-container">
+            <div class="pin-aurora"></div>
+            <div class="pin-content">
+                <div class="pin-icon">💚</div>
+                <h1 class="pin-title">Halo Sayang 💚</h1>
+                <p class="pin-subtitle">Masukkan Sandi Rahasia Kita</p>
+                
+                <div class="pin-dots">
+                    <span class="pin-dot"></span>
+                    <span class="pin-dot"></span>
+                    <span class="pin-dot"></span>
+                    <span class="pin-dot"></span>
+                </div>
+                
+                <div class="pin-numpad">
+                    <button class="pin-key" data-key="1">1</button>
+                    <button class="pin-key" data-key="2">2</button>
+                    <button class="pin-key" data-key="3">3</button>
+                    <button class="pin-key" data-key="4">4</button>
+                    <button class="pin-key" data-key="5">5</button>
+                    <button class="pin-key" data-key="6">6</button>
+                    <button class="pin-key" data-key="7">7</button>
+                    <button class="pin-key" data-key="8">8</button>
+                    <button class="pin-key" data-key="9">9</button>
+                    <button class="pin-key pin-key-clear" data-key="clear">⌫</button>
+                    <button class="pin-key" data-key="0">0</button>
+                    <button class="pin-key pin-key-empty"></button>
+                </div>
+                
+                <p class="pin-error" id="pinError">Sandi salah, coba lagi </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MAIN CONTENT (Hidden until PIN correct)      -->
+    <!-- ============================================ -->
+    <main id="mainContent" class="main-content hidden">
+        
+        <!-- ======================================== -->
+        <!-- HERO SECTION                             -->
+        <!-- ======================================== -->
+        <section id="hero" class="hero">
+            <!-- GANTI FOTO HERO DI assets/images/hero.webp -->
+            <div class="hero-bg">
+                <!-- FOTO BACKGROUND TRANSPARAN --opacity ditingkatkan -->
+                <div class="hero-image ken-burns"></div>
+                
+                <!-- Tambahan: Secondary Hero Image untuk efek layer -->
+               
+                
+                <div class="hero-overlay"></div>
+                <div class="hero-gradient"></div>
+                <div class="hero-aurora"></div>
+                <canvas id="heroParticles" class="hero-particles"></canvas>
+            </div>
+            
+            <div class="hero-content">
+                <p class="hero-pretitle">✨ A Special Moment ✨</p>
+                <h1 class="hero-title">
+                    <span class="hero-title-line">Happy Birthday</span>
+                    <span class="hero-title-line glow-text">My Friend 💚</span>
+                </h1>
+                <!-- GANTI NAMA PASANGAN DI SINI -->
+                <p class="hero-name">For My Dearest, <span class="highlight">Aqila</span></p>
+                <p class="hero-subtitle">A Special Memory Made Only For You</p>
+                <div class="hero-scroll-indicator">
+                    <span>Scroll</span>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- MUSIC PLAYER (Fixed)                     -->
+        <!-- ======================================== -->
+        <!-- LETAKKAN MUSIK DI assets/audio/ -->
+        <div class="music-player" id="musicPlayer">
+            <button class="music-btn music-btn-prev" id="btnPrev" aria-label="Previous">⏮</button>
+            <button class="music-btn music-btn-play" id="btnPlay" aria-label="Play">▶</button>
+            <button class="music-btn music-btn-next" id="btnNext" aria-label="Next">⏭</button>
+            <div class="music-info">
+                <span class="music-title" id="musicTitle">Song 1</span>
+                <div class="music-progress">
+                    <div class="music-progress-bar" id="musicProgress"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- PHOTO SECTION                            -->
+        <!-- ======================================== -->
+        <section id="photos" class="section photos-section">
+            <div class="container">
+                <h2 class="section-title">Yur Beautiful Moments</h2>
+                <p class="section-subtitle">Kenangan yang tak akan pernah terlupa</p>
+                
+                <div class="photo-grid">
+                    <!-- GANTI FOTO DI assets/images/photo1.webp -->
+                    <div class="photo-card reveal">
+                        <div class="photo-frame">
+                            <img src="assets/images/photo1.webp" alt="Memory 1" loading="lazy">
+                        </div>
+                        <p class="photo-caption">First Smile 💚</p>
+                    </div>
+                    <!-- GANTI FOTO DI assets/images/photo2.webp -->
+                    <div class="photo-card reveal">
+                        <div class="photo-frame">
+                            <img src="assets/images/photo2.webp" alt="Memory 2" loading="lazy">
+                        </div>
+                        <p class="photo-caption">Our Adventure 🌿</p>
+                    </div>
+                    <!-- GANTI FOTO DI assets/images/photo3.webp -->
+                    <div class="photo-card reveal">
+                        <div class="photo-frame">
+                            <img src="assets/images/photo3.webp" alt="Memory 3" loading="lazy">
+                        </div>
+                        <p class="photo-caption">Forever Us 💫</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- TIMELINE SECTION                         -->
+        <!-- ======================================== -->
+        <section id="timeline" class="section timeline-section">
+            <div class="container">
+                <h2 class="section-title">Your Journey</h2>
+                <p class="section-subtitle">Setiap langkah bersamamu adalah anugerah</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">Januari 2023</span>
+                            <h3>Pertama Bertemu</h3>
+                            <p>Saat mata kita pertama kali bertemu, aku tahu ada sesuatu yang istimewa...</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">Maret 2023</span>
+                            <h3>Mulai Dekat</h3>
+                            <p>Obrolan panjang di malam hari, tawa yang tak pernah habis...</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">Juni 2023</span>
+                            <h3>Jadian 💚</h3>
+                            <p>Hari dimana aku resmi menjadi milikmu, dan kamu menjadi duniaku...</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">Hari Ini</span>
+                            <h3>Hari Spesial 🌹</h3>
+                            <p>Di hari istimewa ini, aku ingin kamu tahu betapa berartinya kamu bagiku...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- ALBUM SECTION - 10 FOTO                  -->
+        <!-- ======================================== -->
+        <section id="album" class="section album-section">
+            <div class="container">
+                <h2 class="section-title">Album Kita</h2>
+                <p class="section-subtitle">Klik foto untuk melihat lebih jelas</p>
+                
+                <div class="album-grid album-grid-10">
+                    <!-- FOTO 1 -->
+                    <div class="album-item reveal" data-src="assets/images/photo1.webp">
+                        <img src="assets/images/photo1.webp" alt="Album 1" loading="lazy">
+                    </div>
+                    <!-- FOTO 2 -->
+                    <div class="album-item reveal" data-src="assets/images/photob.webp">
+                        <img src="assets/images/photob.webp" alt="Album 2" loading="lazy">
+                    </div>
+                    <!-- FOTO 3 -->
+                    <div class="album-item reveal" data-src="assets/images/photo9.webp">
+                        <img src="assets/images/photo9.webp" alt="Album 3" loading="lazy">
+                    </div>
+                    <!-- FOTO 4 -->
+                    <div class="album-item reveal" data-src="assets/images/photo4.webp">
+                        <img src="assets/images/photo4.webp" alt="Album 4" loading="lazy">
+                    </div>
+                    <!-- FOTO 5 -->
+                    <div class="album-item reveal" data-src="assets/images/photo5.webp">
+                        <img src="assets/images/photo5.webp" alt="Album 5" loading="lazy">
+                    </div>
+                    <!-- FOTO 6 -->
+                    <div class="album-item reveal" data-src="assets/images/photo6.webp">
+                        <img src="assets/images/photo6.webp" alt="Album 6" loading="lazy">
+                    </div>
+                    <!-- FOTO 7 -->
+                    <div class="album-item reveal" data-src="assets/images/photo7.webp">
+                        <img src="assets/images/photo7.webp" alt="Album 7" loading="lazy">
+                    </div>
+                    <!-- FOTO 8 -->
+                    <div class="album-item reveal" data-src="assets/images/photo8.webp">
+                        <img src="assets/images/photo8.webp" alt="Album 8" loading="lazy">
+                    </div>
+                    <!-- FOTO 9 -->
+                    <div class="album-item reveal" data-src="assets/images/photoa.webp">
+                        <img src="assets/images/photoa.webp" alt="Album 9" loading="lazy">
+                    </div>
+                    <!-- FOTO 10 -->
+                    <div class="album-item reveal" data-src="assets/images/photo10.webp">
+                        <img src="assets/images/photo10.webp" alt="Album 10" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox hidden">
+            <button class="lightbox-close" id="lightboxClose">✕</button>
+            <img id="lightboxImg" src="" alt="Preview">
+        </div>
+
+        <!-- ======================================== -->
+        <!-- LOVE LETTER SECTION                      -->
+        <!-- ======================================== -->
+        <section id="letter" class="section letter-section">
+            <div class="container">
+                <h2 class="section-title">Pesan Rahasia</h2>
+                <div class="letter-card reveal">
+                    <div class="letter-decoration">💌</div>
+                    <!-- GANTI ISI SURAT DI SINI -->
+                    <div class="letter-content" id="letterContent">
+                        <p class="typewriter-line" data-text="Untuk Sayangku yang paling aku cinta,"></p>
+                        <p class="typewriter-line" data-text="Setiap hari bersamamu adalah anugerah terindah yang pernah aku rasakan. Kamu adalah alasan dibalik senyumku, dan cahaya yang menerangi hari-hariku."></p>
+                        <p class="typewriter-line" data-text="Terima kasih sudah menjadi rumah untuk hatiku yang selalu pulang. Terima kasih sudah menjadi alasan aku percaya pada cinta yang tulus."></p>
+                        <p class="typewriter-line" data-text="Di hari spesialmu ini, aku ingin kamu tahu: kamu adalah segalanya bagiku. Sekarang, besok, dan selamanya. 💚"></p>
+                        <p class="typewriter-sign" data-text="Dengan seluruh cintaku,"></p>
+                        <p class="typewriter-name" data-text="— Untukmu, Selamanya"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- PRAYER SECTION                           -->
+        <!-- ======================================== -->
+        <section id="prayer" class="section prayer-section">
+            <div class="container">
+                <div class="prayer-card reveal">
+                    <div class="prayer-icon"></div>
+                    <h2 class="section-title">Doa Untukmu</h2>
+                    <!-- GANTI ISI DOA DI SINI -->
+                    <p class="prayer-text">Semoga Allah selalu melindungimu, memberikan kebahagiaan yang tak berkesudahan, kesehatan yang sempurna, dan kemudahan dalam setiap urusanmu.</p>
+                    <p class="prayer-text">Semoga setiap langkahmu diberkahi, setiap mimpimu terwujud, dan setiap doamu diijabah. Aamiin 💚</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SURPRISE SECTION                         -->
+        <!-- ======================================== -->
+        <section id="surprise" class="section surprise-section">
+            <div class="container">
+                <h2 class="section-title">A Little Surprise</h2>
+                <button class="surprise-btn reveal" id="surpriseBtn">
+                    <span>Tap For Surprise 💚</span>
+                </button>
+                <div class="surprise-message hidden" id="surpriseMessage">
+                    <p> Aku mencintaimu, hari ini dan selamanya 🌹</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- FOOTER                                   -->
+        <!-- ======================================== -->
+        <footer class="footer">
+            <p>Made With Love 💚</p>
+            <!-- GANTI NAMA PENGIRIM DI SINI -->
+            <p class="footer-name">From Your <span class="highlight">Abdul</span></p>
+            <p class="footer-date">11 Juli 2026</p>
+        </footer>
+
+        <!-- ======================================== -->
+        <!-- FLOATING MENU                            -->
+        <!-- ======================================== -->
+        <nav class="floating-menu" id="floatingMenu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">💚</button>
+            <div class="menu-items hidden" id="menuItems">
+                <a href="#album" class="menu-item">📸 Album</a>
+                <a href="#timeline" class="menu-item">️ Kenangan</a>
+                <a href="#letter" class="menu-item">💌 Pesan</a>
+                <a href="#surprise" class="menu-item">🎁 Surprise</a>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- ============================================ -->
+    <!-- GLOBAL EFFECTS                               -->
+    <!-- ============================================ -->
+    <div class="falling-petals" id="fallingPetals"></div>
+    <div class="touch-effects" id="touchEffects"></div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
