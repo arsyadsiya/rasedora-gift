@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#FFEAA7" />
+<meta name="description" content="Love Scrapbook - A Cute Digital Diary" />
+<title>Aqila Punya💕</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@400;700&family=Kalam:wght@300;400;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ LOADING SCREEN ============ -->
+<div id="loading" class="loading">
+  <div class="loading-inner">
+    <div class="loading-heart">💕</div>
+    <p>Tunggu dulu bentar...</p>
+  </div>
+</div>
+
+<!-- ============ FLOATING BACKGROUND DECORATIONS ============ -->
+<div class="bg-decor" aria-hidden="true">
+  <span class="float-el heart">💖</span>
+  <span class="float-el heart" style="--delay:2s">💕</span>
+  <span class="float-el star" style="--delay:1s">⭐</span>
+  <span class="float-el star" style="--delay:3s">✨</span>
+  <span class="float-el flower" style="--delay:0.5s">🌸</span>
+  <span class="float-el flower" style="--delay:2.5s">🌷</span>
+  <span class="float-el cloud" style="--delay:1.5s">☁️</span>
+  <span class="float-el ribbon">🎀</span>
+  <span class="float-el duck" style="--delay:4s">🦆</span>
+  <span class="float-el bunny" style="--delay:3.5s">🐰</span>
+</div>
+
+<!-- ============ PIN SCREEN ============ -->
+<section id="pinScreen" class="screen pin-screen active">
+  <div class="notebook">
+    <div class="notebook-spine"></div>
+    <div class="notebook-lines" aria-hidden="true"></div>
+
+    <div class="tape tape-top-left"></div>
+    <div class="tape tape-top-right"></div>
+
+    <div class="sticker sticker-smile">😊</div>
+    <div class="sticker sticker-heart">💗</div>
+    <div class="sticker sticker-star">⭐</div>
+
+  <!-- Polaroid 1 dengan foto -->
+<div class="polaroid polaroid-1">
+  <div class="polaroid-img" style="background-image: url('assets/gambar/hero.webp'); background-size: cover; background-position: center;"></div>
+  <div class="polaroid-caption">Our✨</div>
+</div>
+
+<!-- Polaroid 2 dengan foto -->
+<div class="polaroid polaroid-2">
+  <div class="polaroid-img" style="background-image: url('assets/gambar/photo7.webp'); background-size: cover; background-position: center;"></div>
+  <div class="polaroid-caption">Family</div>
+</div>
+
+    <div class="sticky-note sticky-halo">
+      <h1 class="handwritten">Halo Mbak 🌸</h1>
+    </div>
+
+    <div class="pin-box">
+      <p class="pin-label">Masukkan PIN Rahasia 🔐</p>
+      <div class="pin-inputs">
+        <input type="tel" maxlength="1" inputmode="numeric" class="pin-input" data-idx="0" aria-label="PIN digit 1" />
+        <input type="tel" maxlength="1" inputmode="numeric" class="pin-input" data-idx="1" aria-label="PIN digit 2" />
+        <input type="tel" maxlength="1" inputmode="numeric" class="pin-input" data-idx="2" aria-label="PIN digit 3" />
+        <input type="tel" maxlength="1" inputmode="numeric" class="pin-input" data-idx="3" aria-label="PIN digit 4" />
+      </div>
+      <p class="pin-hint">Hint: 1234💭</p>
+      <div class="pin-error" id="pinError">SALAH jir, tolol banget💔</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAIN APP ============ -->
+<main id="app" class="app">
+
+  <!-- COVER / HOME -->
+  <section class="page page-cover active" data-page="cover">
+    <div class="scrapbook-page">
+      <div class="tape tape-cover-1"></div>
+      <div class="tape tape-cover-2"></div>
+      <div class="tape tape-cover-3"></div>
+
+      <div class="photo-frame photo-big tilt-left">
+        <div class="photo" data-key="cover1" aria-label="Photo"></div>
+        <div class="photo-caption handwritten">My Lovely 💕</div>
+      </div>
+
+      <div class="photo-frame photo-big tilt-right">
+        <div class="photo" data-key="cover2" aria-label="Photo"></div>
+        <div class="photo-caption handwritten">my favorite person</div>
+      </div>
+
+      <h1 class="cover-title" id="coverTitle">
+        <span class="cover-pre">Happy</span>
+        <span class="cover-main" id="coverMainText">Birthday</span>
+      </h1>
+      <p class="cover-name handwritten" id="coverName">Aqila 💖</p>
+
+      <div class="cover-deco" aria-hidden="true">
+        <span>🎀</span><span>🌸</span><span>⭐</span><span>🎈</span>
+        <span>🐰</span><span>🧁</span><span>🍒</span><span>💝</span>
+        <span>🎁</span><span>🌷</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE: PHOTO ALBUM -->
+  <section class="page" data-page="album">
+    <div class="scrapbook-page">
+      <div class="page-header">
+        <span class="page-num">01</span>
+        <h2 class="handwritten">Our Memories 📸</h2>
+        <div class="washi-tape"></div>
+      </div>
+      <div class="album-grid" id="albumGrid"></div>
+    </div>
+  </section>
+
+  <!-- PAGE: MINI GAMES -->
+  <section class="page" data-page="games">
+    <div class="scrapbook-page">
+      <div class="page-header">
+        <span class="page-num">02</span>
+        <h2 class="handwritten">Mini Games 🎮</h2>
+        <div class="washi-tape"></div>
+      </div>
+      <div class="game-menu">
+        <button class="game-card" data-game="polaroid"><span class="g-ico">📷</span><span>Open Polaroid</span></button>
+        <button class="game-card" data-game="sticker"><span class="g-ico">🎟️</span><span>Sticker Hunt</span></button>
+        <button class="game-card" data-game="envelope"><span class="g-ico">💌</span><span>Love Letter</span></button>
+        <button class="game-card" data-game="memory"><span class="g-ico">🧩</span><span>Memory Puzzle</span></button>
+        <button class="game-card" data-game="gacha"><span class="g-ico">🎰</span><span>Fortune Gacha</span></button>
+        <button class="game-card" data-game="wheel"><span class="g-ico">🎡</span><span>Spin Wheel</span></button>
+        <button class="game-card" data-game="hidden"><span class="g-ico">💞</span><span>Hidden Hearts</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE: LOVE LETTER -->
+  <section class="page" data-page="letter">
+    <div class="scrapbook-page letter-page">
+      <div class="page-header">
+        <span class="page-num">03</span>
+        <h2 class="handwritten">Culat💌</h2>
+        <div class="washi-tape"></div>
+      </div>
+      <div class="letter-paper">
+        <div class="letter-lines" aria-hidden="true"></div>
+        <div class="letter-date handwritten" id="letterDate"></div>
+        <div class="letter-body handwritten" id="letterBody"></div>
+        <div class="letter-sign handwritten" id="letterSign"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE: PLAYLIST -->
+  <section class="page" data-page="playlist">
+    <div class="scrapbook-page">
+      <div class="page-header">
+        <span class="page-num">04</span>
+        <h2 class="handwritten">Our Playlist 🎵</h2>
+        <div class="washi-tape"></div>
+      </div>
+      <div class="playlist-list" id="playlistList"></div>
+    </div>
+  </section>
+
+  <!-- PAGE: QUOTES -->
+  <section class="page" data-page="quotes">
+    <div class="scrapbook-page">
+      <div class="page-header">
+        <span class="page-num">05</span>
+        <h2 class="handwritten">YHAPING 💭</h2>
+        <div class="washi-tape"></div>
+      </div>
+      <div class="quotes-wall" id="quotesWall"></div>
+    </div>
+  </section>
+
+  <!-- PAGE: SECRET BOX -->
+  <section class="page" data-page="secret">
+    <div class="scrapbook-page">
+      <div class="page-header">
+        <span class="page-num">06</span>
+        <h2 class="handwritten">Rahasia Jangan dibuka 🎁</h2>
+        <div class="washi-tape"></div>
+      </div>
+      <div class="secret-box-wrap">
+        <div class="gift-box" id="giftBox" role="button" tabindex="0" aria-label="Open secret box">
+          <div class="gift-lid"></div>
+          <div class="gift-body">
+            <span class="gift-ribbon-v"></span>
+            <span class="gift-ribbon-h"></span>
+          </div>
+          <div class="gift-bow">🎀</div>
+          <div class="gift-label handwritten">kenapa dibuka💕</div>
+        </div>
+        <div class="surprise" id="surprise">
+          <div class="surprise-content" id="surpriseContent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE: GALLERY -->
+  <section class="page" data-page="gallery">
+    <div class="scrapbook-page">
+      <div class="page-header">
+        <span class="page-num">07</span>
+        <h2 class="handwritten">Aib ta iki 🖼️</h2>
+        <div class="washi-tape"></div>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- PAGE: TIMELINE -->
+  <section class="page" data-page="timeline">
+    <div class="scrapbook-page">
+      <div class="page-header">
+        <span class="page-num">08</span>
+        <h2 class="handwritten">Our Journey 🗓️</h2>
+        <div class="washi-tape"></div>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ MINI GAME OVERLAY ============ -->
+<div class="game-overlay" id="gameOverlay" aria-hidden="true">
+  <div class="game-modal" id="gameModal">
+    <button class="game-close" id="gameClose" aria-label="Close">✕</button>
+    <div class="game-content" id="gameContent"></div>
+  </div>
+</div>
+
+<!-- ============ FLOATING NAVIGATION ============ -->
+<nav class="fab-nav" aria-label="Main navigation">
+  <button class="fab" data-goto="cover" aria-label="Cover">📖</button>
+  <button class="fab" data-goto="album" aria-label="Album">📷</button>
+  <button class="fab" data-goto="games" aria-label="Games">🎮</button>
+  <button class="fab" data-goto="letter" aria-label="Letter">💌</button>
+  <button class="fab" data-goto="playlist" aria-label="Playlist">🎵</button>
+  <button class="fab" data-goto="secret" aria-label="Secret">🎁</button>
+  <button class="fab sound-toggle" id="soundToggle" aria-label="Toggle sound">🔊</button>
+</nav>
+
+<!-- ============ PAGE NAV (PREV/NEXT) ============ -->
+<div class="page-nav">
+  <button class="page-btn prev" id="prevPage" aria-label="Previous page">◀</button>
+  <div class="page-indicator" id="pageIndicator">1 / 9</div>
+  <button class="page-btn next" id="nextPage" aria-label="Next page">▶</button>
+</div>
+
+<!-- ============ TOUCH EFFECT CANVAS ============ -->
+<canvas id="touchCanvas" aria-hidden="true"></canvas>
+
+<!-- ============ CONFETTI LAYER ============ -->
+<div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop preload="none"></audio>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
